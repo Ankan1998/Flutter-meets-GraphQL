@@ -1,3 +1,4 @@
+import 'package:fgql/widgets/graphql_main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -74,6 +75,12 @@ class _EntryScreenState extends State<EntryScreen> {
           IconButton(
             onPressed: () {
               //onSendMessage(textEditingController.text);
+              Navigator.pushReplacement(
+                context, 
+                MaterialPageRoute(
+                  builder: (BuildContext context) => GraphMain(access_token: textEditingController.text)
+                )
+              );
             },
             icon: Icon(
               Icons.send_sharp,
