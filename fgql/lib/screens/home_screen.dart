@@ -13,37 +13,72 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   centerTitle: true,
-      //   backgroundColor: Colors.grey[900],
-      //   title: Text(
-      //     'Gitty',
-      //     style: TextStyle(
-      //       fontSize: 32,
-      //       fontWeight: FontWeight.w300,
-      //       letterSpacing: 4,
-      //       fontFamily: GoogleFonts.pacifico().fontFamily
-      //     ),
-      //   ),
-      //   elevation: 0,
-      // ),
-      backgroundColor: Colors.grey[500],
+      backgroundColor: Colors.deepPurple[100],
       body: SafeArea(
         child: Column(
           children: [
-            // SizedBox(
-            //   height: MediaQuery.of(context).size.height*0.05
-            // ),
-            Container(
-              margin: EdgeInsets.all(10.0),
-              child: Stack(
-                //alignment: Alignment.topCenter,
-                children: [
+            
+            Stack(
+              //alignment: Alignment.topCenter,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width*1.0,
+                  height:300,
+                  
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    image: DecorationImage(
+                      image: AssetImage('images/c.png'),
+                      fit: BoxFit.cover
+                    ),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(120),
+                      bottomRight: Radius.circular(120),
 
-                  Container(
+                    ),                                                    
+                  ),
+                  child:Container()                    
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width*1.0,
+                  height:300,
+                  
+                  decoration: BoxDecoration(
+                    
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(120),
+                      bottomRight: Radius.circular(120),
+
+                    ),                                                    
+                    gradient: LinearGradient(
+                      
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      stops: [
+                        0.1,
+                        0.4,
+                        0.8,
+                      ],
+                      colors: [
+                        Colors.blueGrey[700].withOpacity(0.5),
+                        Colors.red[700].withOpacity(0.3),
+                        Colors.deepPurple[900].withOpacity(0.6),
+                      ],
+                    )
+                  ),
+                  child:Container()
+                    
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    
+                    left: 20,
+                    right: 20
+                  ),
+                  child: Container(
                     width: MediaQuery.of(context).size.width*1.0,
                     height:250,
-                    margin: EdgeInsets.only(top: 90.0),
+                    margin: EdgeInsets.only(top: 110.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(30)
@@ -74,28 +109,36 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: Colors.white,
                           ),
                         ),
+                        Text(
+                          '12423534543',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
                       
                   ),
-                  Align(
-                    alignment: Alignment.topCenter,
+                ),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
                     child: SizedBox(
                       child: CircleAvatar(
-                        radius:82,
-                        backgroundColor: Colors.black,
+                        radius:84,
+                        backgroundColor: Colors.white,
                         child: CircleAvatar(
                           radius:80,
-                          backgroundColor: Colors.white,
+                          backgroundColor: Colors.black,
                         ),
                       ),
                     ),
                   ),
-                  
-
-        
-                ]
-              ),
+                ),
+              ]
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height*0.01
