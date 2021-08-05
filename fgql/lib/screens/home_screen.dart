@@ -27,24 +27,27 @@ class _HomeScreenState extends State<HomeScreen> {
       //   ),
       //   elevation: 0,
       // ),
-      backgroundColor: Colors.grey[900],
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+      backgroundColor: Colors.grey[500],
+      body: SafeArea(
         child: Column(
           children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height*0.05
-            ),
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(36.0),
-                  child: Container(
-                    width: 400,
-                    height:300,
+            // SizedBox(
+            //   height: MediaQuery.of(context).size.height*0.05
+            // ),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              child: Stack(
+                //alignment: Alignment.topCenter,
+                children: [
+
+                  Container(
+                    width: MediaQuery.of(context).size.width*1.0,
+                    height:250,
+                    margin: EdgeInsets.only(top: 90.0),
                     decoration: BoxDecoration(
-                                
-                      
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30)
+                      ),                                                    
                       gradient: LinearGradient(
                         begin: Alignment.topRight,
                         end: Alignment.bottomLeft,
@@ -60,10 +63,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       )
                     ),
-                    child: Column(
+                    child:Column(
                       children: [
+                        SizedBox(height: 90,),
                         Text(
-                          'Hello Gradient!',
+                          'fbcbvcncvnvbnvbn',
                           style: TextStyle(
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
@@ -72,21 +76,29 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
+                      
                   ),
-                ),
-                Positioned(
-                  top:15,
-                  left:15,
-                  child: CircleAvatar(
-                    radius:55,
-                    backgroundColor: Colors.red[900],
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: SizedBox(
+                      child: CircleAvatar(
+                        radius:82,
+                        backgroundColor: Colors.black,
+                        child: CircleAvatar(
+                          radius:80,
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                  
 
-              ]
+        
+                ]
+              ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.05
+              height: MediaQuery.of(context).size.height*0.01
             ),
             Expanded(
               child: Container(
