@@ -18,7 +18,7 @@ class _UserActivityState extends State<UserActivity> {
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: Container(
         width: MediaQuery.of(context).size.width * 1.0,
-        height: 150,
+        height: MediaQuery.of(context).size.height * 0.12,
         //margin: EdgeInsets.only(top: 110.0),
         decoration: BoxDecoration(
             border: Border.all(color: Colors.white,width: 3),
@@ -42,39 +42,87 @@ class _UserActivityState extends State<UserActivity> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text(
-              "${widget.u_activity['repositories']['totalCount']}",
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.brown[600],
-                fontFamily: GoogleFonts.raleway().fontFamily,
-                letterSpacing: 1.5
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "REPOSITORY",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[800],
+                    fontFamily: GoogleFonts.ubuntu().fontFamily,
+                    letterSpacing: 1
+                  ),
+                ),
+                Text(
+                  "${widget.u_activity['repositories']['totalCount']}",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.brown[600],
+                    fontFamily: GoogleFonts.raleway().fontFamily,
+                    letterSpacing: 1.5
+                  ),
+                ),
+              ],
             ),
-            Text(
-              "${widget.u_activity['followers']['totalCount']}",
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.brown[600],
-                fontFamily: GoogleFonts.raleway().fontFamily,
-                letterSpacing: 1.5
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "FOLLOWERS",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[800],
+                    fontFamily: GoogleFonts.ubuntu().fontFamily,
+                    letterSpacing: 1
+                  ),
+                ),
+                Text(
+                  "${widget.u_activity['followers']['totalCount']}",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.brown[600],
+                    fontFamily: GoogleFonts.raleway().fontFamily,
+                    letterSpacing: 1.5
+                  ),
+                ),
+              ],
             ),
-            Text(
-              "${widget.u_activity['following']['totalCount']}",
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.brown[600],
-                fontFamily: GoogleFonts.raleway().fontFamily,
-                letterSpacing: 1.5
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "FOLLOWING",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[800],
+                    fontFamily: GoogleFonts.ubuntu().fontFamily,
+                    letterSpacing: 1
+                  ),
+                ),
+                Text(
+                  "${widget.u_activity['following']['totalCount']}",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.brown[600],
+                    fontFamily: GoogleFonts.raleway().fontFamily,
+                    letterSpacing: 1.5
+                  ),
+                ),
+              ],
             ),
+
           ],
         ),
       ),
     );
   }
 }
+
+
