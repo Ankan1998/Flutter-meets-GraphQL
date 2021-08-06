@@ -1,4 +1,5 @@
 import 'package:fgql/themes.dart';
+import 'package:fgql/widgets/user_activity.dart';
 import 'package:fgql/widgets/user_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -56,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             //print(result.data['user']);
             //print(result.hasException); 
             //print(result.hasException);
-            // if (result.hasException != null) {
+            // if (result.hasException) {
             //   return Center(
             //       child: Text(
             //     result.hasException.toString(),
@@ -74,6 +75,8 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   UserDetail(u_detail: userDetail),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                  UserActivity(u_activity: userDetail),
                   //UserDetail(),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   Expanded(
