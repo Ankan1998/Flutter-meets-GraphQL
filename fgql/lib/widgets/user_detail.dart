@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class UserDetail extends StatefulWidget {
-  //const UserDetail({ Key? key }) : super(key: key);
+  const UserDetail({Key key, this.u_detail}) : super(key: key);
+  final Map u_detail;
 
   @override
   _UserDetailState createState() => _UserDetailState();
@@ -10,6 +12,7 @@ class UserDetail extends StatefulWidget {
 class _UserDetailState extends State<UserDetail> {
   @override
   Widget build(BuildContext context) {
+    print(widget.u_detail);
     return Stack(
         //alignment: Alignment.topCenter,
         children: [
@@ -77,19 +80,47 @@ class _UserDetailState extends State<UserDetail> {
                     height: 90,
                   ),
                   Text(
-                    'fbcbvcncvnvbnvbn',
+                    "Name: ${widget.u_detail['name']}",
                     style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 22.0,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Colors.grey[800],
+                      fontFamily: GoogleFonts.poppins().fontFamily
                     ),
                   ),
                   Text(
-                    '12423534543',
+                    "ID: ${widget.u_detail['login']}",
                     style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 18.0,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Colors.brown[600],
+                      fontFamily: GoogleFonts.raleway().fontFamily,
+                      letterSpacing: 1.5
+                    ),
+                  ),
+                  Text(
+                    "Location: ${widget.u_detail['location']}",
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.brown[600],
+                      fontFamily: GoogleFonts.raleway().fontFamily,
+                      letterSpacing: 1.5
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    child: Center(
+                      child: Text(
+                        "${widget.u_detail['url']}",
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.cyan[900],
+                          fontFamily: GoogleFonts.quicksand().fontFamily,
+                          letterSpacing: 1.3
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -105,14 +136,14 @@ class _UserDetailState extends State<UserDetail> {
                   radius: 84,
                   backgroundColor: Colors.white,
                   child: CircleAvatar(
-                    radius: 80,
-                    backgroundColor: Colors.black,
-                  ),
+                      radius: 80,
+                      //backgroundColor: Colors.grey[800],
+                      backgroundImage:
+                          NetworkImage(widget.u_detail['avatarUrl'])),
                 ),
               ),
             ),
           ),
-        ]
-    );
+        ]);
   }
 }
