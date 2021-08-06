@@ -56,7 +56,7 @@ class _UserDetailState extends State<UserDetail> {
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Container(
               width: MediaQuery.of(context).size.width * 1.0,
-              height: 250,
+              //height: 250,
               margin: EdgeInsets.only(top: 110.0),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -108,6 +108,16 @@ class _UserDetailState extends State<UserDetail> {
                       letterSpacing: 1.5
                     ),
                   ),
+                  Text(
+                    "Email: ${widget.u_detail['email']}",
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.brown[600],
+                      fontFamily: GoogleFonts.raleway().fontFamily,
+                      letterSpacing: 1.5
+                    ),
+                  ),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: Center(
@@ -123,6 +133,7 @@ class _UserDetailState extends State<UserDetail> {
                       ),
                     ),
                   ),
+                  SizedBox(height:30)
                 ],
               ),
             ),
