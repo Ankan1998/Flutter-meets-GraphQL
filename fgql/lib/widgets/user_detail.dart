@@ -20,7 +20,8 @@ class _UserDetailState extends State<UserDetail> {
               width: MediaQuery.of(context).size.width * 1.0,
               height: 300,
               decoration: BoxDecoration(
-                color: Colors.transparent,
+                
+                //color: Colors.transparent,
                 image: DecorationImage(
                     image: AssetImage('images/c.png'), fit: BoxFit.cover),
                 borderRadius: BorderRadius.only(
@@ -33,6 +34,7 @@ class _UserDetailState extends State<UserDetail> {
               width: MediaQuery.of(context).size.width * 1.0,
               height: 300,
               decoration: BoxDecoration(
+                
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(120),
                     bottomRight: Radius.circular(120),
@@ -59,6 +61,7 @@ class _UserDetailState extends State<UserDetail> {
               //height: 250,
               margin: EdgeInsets.only(top: 110.0),
               decoration: BoxDecoration(
+                border: Border.all(color: Colors.white,width: 3),
                   borderRadius: BorderRadius.all(Radius.circular(30)),
                   gradient: LinearGradient(
                     begin: Alignment.topRight,
