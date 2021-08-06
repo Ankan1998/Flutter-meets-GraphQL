@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class UserDetail extends StatefulWidget {
   const UserDetail({Key key, this.u_detail}) : super(key: key);
@@ -124,14 +125,17 @@ class _UserDetailState extends State<UserDetail> {
                   Container(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: Center(
-                      child: Text(
-                        "${widget.u_detail['url']}",
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.cyan[900],
-                          fontFamily: GoogleFonts.quicksand().fontFamily,
-                          letterSpacing: 1.3
+                      child: InkWell(
+                        //onTap: () => launch(widget.u_detail['url']),
+                        child: Text(
+                          "${widget.u_detail['url']}",
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.cyan[900],
+                            fontFamily: GoogleFonts.quicksand().fontFamily,
+                            letterSpacing: 1.3
+                          ),
                         ),
                       ),
                     ),
