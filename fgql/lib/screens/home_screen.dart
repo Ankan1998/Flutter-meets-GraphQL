@@ -1,6 +1,7 @@
 import 'package:fgql/themes.dart';
 import 'package:fgql/widgets/user_activity.dart';
 import 'package:fgql/widgets/user_detail.dart';
+import 'package:fgql/widgets/user_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -14,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String readRepositories = """
-    query Flutter_Github_GraphQL{
+       query Flutter_Github_GraphQL{
             user(login: "Ankan1998") {
                 avatarUrl(size: 200)
                 location
@@ -33,18 +34,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
               }
       viewer {
-              starredRepositories(last: 12) {
+              repositories(first: 100) {
                 edges {
-                  node {
-                    id
+                  node {        
                     name
-                    nameWithOwner
+                    stargazerCount
+                    forkCount      
                   }
                 }
               }
             }
           }
       """;
+  int count = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,9 +55,12 @@ class _HomeScreenState extends State<HomeScreen> {
           options: QueryOptions(document: gql(readRepositories)),
           builder: (QueryResult result,
               {VoidCallback refetch, FetchMore fetchMore}) {
+            count = count + 1;
+            print(count);
+            print(result.data);
             //print("ckbjmlckb");
             //print(result.data['user']);
-            //print(result.hasException); 
+            print(result.hasException);
             //print(result.hasException);
             // if (result.hasException) {
             //   return Center(
@@ -69,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
               return Center(child: CircularProgressIndicator());
             }
             final userDetail = result.data['user'];
+            final repoList = result.data['viewer']['repositories']['edges'];
             //print("dgjkfsdg");
             //print("yo yo ${userDetail['avatarUrl']}");
             return SafeArea(
@@ -81,14 +87,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   Expanded(
                     child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(30),
-                              topRight: Radius.circular(30),
-                            )),
-                        child: Container()),
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30),
+                          )),
+                      child: UserRepo(repo: repoList,)
+                    ),
                   ),
                 ],
               ),
