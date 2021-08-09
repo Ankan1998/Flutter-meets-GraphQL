@@ -38,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 edges {
                   node {        
                     name
+                    description
                     stargazerCount
                     forkCount      
                   }
@@ -62,14 +63,14 @@ class _HomeScreenState extends State<HomeScreen> {
             //print(result.data['user']);
             print(result.hasException);
             //print(result.hasException);
-            // if (result.hasException) {
-            //   return Center(
-            //       child: Text(
-            //     result.hasException.toString(),
-            //     style: TextStyle(fontSize: 16),
-            //     textAlign: TextAlign.center,
-            //   ));
-            // }
+            if (result.hasException) {
+              return Center(
+                  child: Text(
+                result.hasException.toString(),
+                style: TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ));
+            }
             if (result.isLoading) {
               return Center(child: CircularProgressIndicator());
             }
