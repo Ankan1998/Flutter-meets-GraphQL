@@ -30,20 +30,20 @@ class _UserRepoState extends State<UserRepo> {
           
           padding: EdgeInsets.only(top: 15),
           decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  stops: [
-                    0.1,
-                    0.4,
-                    0.8,
-                  ],
-                  colors: [
-                    Colors.lightBlue[300].withOpacity(0.3),
-                    Colors.indigo[300].withOpacity(0.4),
-                    Colors.deepPurple[400].withOpacity(0.5),
-                  ],
-                ),
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              stops: [
+                0.1,
+                0.4,
+                0.8,
+              ],
+              colors: [
+                Colors.lightBlue[300].withOpacity(0.3),
+                Colors.indigo[300].withOpacity(0.4),
+                Colors.deepPurple[400].withOpacity(0.5),
+              ],
+            ),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20),

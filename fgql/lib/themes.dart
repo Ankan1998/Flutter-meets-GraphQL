@@ -3,14 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme {
   MyTheme._();
-  static Color kPrimaryColor = Colors.green[600];
+  static Color kPrimaryColor = Colors.green[900];
   static Color kPrimaryColorVariant = Color(0xff686795);
   static Color kAccentColor = Color(0xffffa000);
   static Color kAccentColorVariant = Color(0xffF7A3A2);
   static Color kUnreadChatBG = Color(0xffEE1D1D);
 
   static final TextStyle kAppTitle = GoogleFonts.pacifico(
-    fontSize: 36,
+    fontSize: 5,
     fontWeight: FontWeight.w300,
     letterSpacing: 2
     );
