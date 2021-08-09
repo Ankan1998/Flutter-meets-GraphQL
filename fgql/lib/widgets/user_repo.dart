@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:koukicons/favourite2.dart';
+import 'package:koukicons/treeStructure.dart';
 
 class UserRepo extends StatefulWidget {
   //const UserRepo({ Key? key }) : super(key: key);
@@ -23,7 +25,28 @@ class _UserRepoState extends State<UserRepo> {
             padding: const EdgeInsets.all(8.0),
             child: Card(
               shadowColor: Colors.grey[900],
-              child: ListTile(
+              child: ExpansionTile(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      child: widget.repo[index]['node']['description'] != null ? 
+                    Text(
+                      widget.repo[index]['node']['description'],
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey[700],
+                        fontFamily: GoogleFonts.lato().fontFamily,
+                        letterSpacing: 1.3
+                      )
+                    )
+                    : Text(
+                      "NULL",
+                    )
+                    ),
+                  )
+                ],
                 title: Text(
                   widget.repo[index]['node']['name'],
                   style: TextStyle(
@@ -34,9 +57,30 @@ class _UserRepoState extends State<UserRepo> {
                     letterSpacing: 1.3
                   )
                 ),
-                // trailing: Row(children: [
-
-                // ],),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                        KoukiconsFavourite2(height: 25,width: 25,),
+                        SizedBox(height:3),
+                        Text("${widget.repo[index]['node']['stargazerCount']}")
+                      ],),
+                    ),
+                    SizedBox(width:5),
+                    Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                        KoukiconsTreeStructure(height: 25,width: 25,),
+                        SizedBox(height:3),
+                        Text("${widget.repo[index]['node']['forkCount']}")
+                      ],),
+                    ),
+                  ],
+                ),
             
               ),
             ),
