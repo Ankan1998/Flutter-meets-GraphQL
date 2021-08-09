@@ -13,7 +13,7 @@ class GraphMain extends StatefulWidget {
 class _GraphMainState extends State<GraphMain> {
   @override
   Widget build(BuildContext context) {
-    final String access_token = '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';
+    final String access_token = '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';
     // httplink conatins the api endpoint
     final HttpLink httplink = HttpLink("https://api.github.com/graphql");
     //defaultHeaders: {"authorization": "Bearer ${access_token}"});
