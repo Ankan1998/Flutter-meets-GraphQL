@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
             }
           }
       """;
-  int count = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,21 +56,19 @@ class _HomeScreenState extends State<HomeScreen> {
           options: QueryOptions(document: gql(readRepositories)),
           builder: (QueryResult result,
               {VoidCallback refetch, FetchMore fetchMore}) {
-            count = count + 1;
-            print(count);
             print(result.data);
             //print("ckbjmlckb");
             //print(result.data['user']);
             print(result.hasException);
             //print(result.hasException);
-            if (result.hasException) {
-              return Center(
-                  child: Text(
-                result.hasException.toString(),
-                style: TextStyle(fontSize: 16),
-                textAlign: TextAlign.center,
-              ));
-            }
+            // if (result.hasException) {
+            //   return Center(
+            //       child: Text(
+            //     result.hasException.toString(),
+            //     style: TextStyle(fontSize: 16),
+            //     textAlign: TextAlign.center,
+            //   ));
+            // }
             if (result.isLoading) {
               return Center(child: CircularProgressIndicator());
             }
@@ -83,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   UserDetail(u_detail: userDetail),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-                  UserActivity(u_activity: userDetail),
+                  UserActivity(u_activity: userDetail, repol: repoList),
                   //UserDetail(),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   Expanded(
@@ -95,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             topLeft: Radius.circular(30),
                             topRight: Radius.circular(30),
                           )),
-                      child: UserRepo(repo: repoList,)
+                      child: Container()
                     ),
                   ),
                 ],
