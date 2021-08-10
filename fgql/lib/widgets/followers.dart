@@ -55,70 +55,74 @@ class _UserFollowerState extends State<UserFollower> {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.all(3.0),
-                child: Card(
-                  color: Colors.grey[200],
-                  shadowColor: Colors.grey[900],
-                  child: ExpansionTile(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          child: widget.follower[index]['node']['bio'] != null ? 
-                        Text(
-                          widget.follower[index]['node']['bio'],
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[700],
-                            fontFamily: GoogleFonts.lato().fontFamily,
-                            letterSpacing: 1.3
+                child: Container(
+                  child: Card(
+                    color: Colors.grey[200],
+                    shadowColor: Colors.grey[900],
+                    child: ExpansionTile(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            child: widget.follower[index]['node']['bio'] != null ? 
+                          Text(
+                            widget.follower[index]['node']['bio'],
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey[700],
+                              fontFamily: GoogleFonts.lato().fontFamily,
+                              letterSpacing: 1.3
+                            )
                           )
+                          : Text(
+                            "NULL",
+                          )
+                          ),
                         )
-                        : Text(
-                          "NULL",
+                      ],
+                      title: widget.follower[index]['node']['name'] != null ? 
+                      Text(
+                        widget.follower[index]['node']['name'],
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.brown[600],
+                          fontFamily: GoogleFonts.courgette().fontFamily,
+                          letterSpacing: 1.3
                         )
-                        ),
                       )
-                    ],
-                    title: widget.follower[index]['node']['name'] != null ? 
-                    Text(
-                      widget.follower[index]['node']['name'],
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.brown[600],
-                        fontFamily: GoogleFonts.courgette().fontFamily,
-                        letterSpacing: 1.3
-                      )
-                    )
-                    :
-                    Text(
-                      "No Name",
-                    ),
-                    trailing: Padding(
-                      padding: const EdgeInsets.only(top:10.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                            KoukiconsFavourite2(height: 25,width: 25,),
-                            SizedBox(height:3),
-                            Text("${widget.follower[index]['node']['followers']['totalCount']}")
-                          ],),
-                          SizedBox(width:5),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                            KoukiconsFlowChart(height: 25,width: 25,),
-                            SizedBox(height:3),
-                            Text("${widget.follower[index]['node']['following']['totalCount']}")
-                          ],),
-                        ],
+                      :
+                      Text(
+                        "No Name",
                       ),
+                      leading: Padding(
+                        padding: const EdgeInsets.all(3.0),
+                        child: ClipOval(
+                          //backgroundColor: Colors.grey[800],
+                          child:Image.network(
+                            widget.follower[index]['node']['avatarUrl'],
+
+                            fit: BoxFit.fill
+                          )
+                        ),
+                      ),
+                      subtitle: Padding(
+                        padding: const EdgeInsets.only(top:10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text("Followers: ${widget.follower[index]['node']['followers']['totalCount']}"),
+                            //SizedBox(width:5),
+                            Text("Following: ${widget.follower[index]['node']['following']['totalCount']}"),
+                            //Text("Following: ${widget.follower[index]['node']['repositories']['totalCount']}"),
+                            //Text("Repository: ${widget.follower[index]['node']['repositories']['totalCount']}"),
+                          ],
+                        ),
+                      ),
+                  
                     ),
-                
                   ),
                 ),
               );
