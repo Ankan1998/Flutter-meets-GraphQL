@@ -16,36 +16,58 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String readRepositories = """
        query Flutter_Github_GraphQL{
-            user(login: "Ankan1998") {
-                avatarUrl(size: 200)
-                location
+        user(login: "Ankan1998") {
+          avatarUrl(size: 200)
+          location
+          name
+          url
+          email
+          login
+          repositories(first:100){
+            edges{
+              node{
                 name
-                url
-                email
-                login
-                repositories {
-                  totalCount
-                }
-                followers {
-                  totalCount
-                }
-                following {
-                  totalCount
-                }
+                description
+                stargazerCount
+                forkCount
               }
-      viewer {
-              repositories(first: 100) {
-                edges {
-                  node {        
-                    name
-                    description
-                    stargazerCount
-                    forkCount      
-                  }
+            }
+            totalCount
+          }
+          followers(first:100) {
+            edges{
+              node{
+                avatarUrl(size:200)
+                name
+                bio
+                followers{
+                  totalCount
+                }
+                following{
+                  totalCount
+                }
+                
+              }
+            }
+            totalCount
+          }
+          following(first:100) {
+            edges{
+              node{
+                name
+                bio
+                followers{
+                  totalCount
+                }
+                following{
+                  totalCount
                 }
               }
             }
+            totalCount
           }
+        }
+      }
       """;
 
   @override
