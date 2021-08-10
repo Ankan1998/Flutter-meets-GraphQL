@@ -100,8 +100,15 @@ class _UserFollowerState extends State<UserFollower> {
                         padding: const EdgeInsets.all(3.0),
                         child: ClipOval(
                           //backgroundColor: Colors.grey[800],
-                          child:Image.network(
+                          child:widget.follower[index]['node']['avatarUrl'] != null ?
+                          Image.network(
                             widget.follower[index]['node']['avatarUrl'],
+
+                            fit: BoxFit.fill
+                          )
+                          :
+                          Image.network(
+                            "https://drgsearch.com/wp-content/uploads/2020/01/no-photo.png",
 
                             fit: BoxFit.fill
                           )
