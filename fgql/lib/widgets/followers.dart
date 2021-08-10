@@ -93,7 +93,7 @@ class _UserFollowerState extends State<UserFollower> {
                     )
                     :
                     Text(
-                      "NULL",
+                      "No Name",
                     ),
                     trailing: Padding(
                       padding: const EdgeInsets.only(top:10.0),
@@ -105,7 +105,7 @@ class _UserFollowerState extends State<UserFollower> {
                             children: [
                             KoukiconsFavourite2(height: 25,width: 25,),
                             SizedBox(height:3),
-                            //Text("${widget.follower[index]['node']['follower']['totalCount']}")
+                            Text("${widget.follower[index]['node']['followers']['totalCount']}")
                           ],),
                           SizedBox(width:5),
                           Column(
@@ -113,7 +113,7 @@ class _UserFollowerState extends State<UserFollower> {
                             children: [
                             KoukiconsFlowChart(height: 25,width: 25,),
                             SizedBox(height:3),
-                            //Text("${widget.follower[index]['node']['following']['totalCount']}")
+                            Text("${widget.follower[index]['node']['following']['totalCount']}")
                           ],),
                         ],
                       ),
