@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
               return Center(child: CircularProgressIndicator());
             }
             final userDetail = result.data['user'];
-            final repoList = result.data['viewer']['repositories']['edges'];
+            final repoList = result.data['user']['repositories']['edges'];
             //print("dgjkfsdg");
             //print("yo yo ${userDetail['avatarUrl']}");
             return SafeArea(
