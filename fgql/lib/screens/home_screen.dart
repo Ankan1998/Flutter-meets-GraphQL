@@ -46,6 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 following{
                   totalCount
                 }
+                repositories{
+                  totalCount
+                }
                 
               }
             }
@@ -54,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
           following(first:100) {
             edges{
               node{
+                avatarUrl(size:200)
                 name
                 bio
                 followers{
@@ -62,10 +66,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 following{
                   totalCount
                 }
+                repositories{
+                  totalCount
+                }
               }
             }
             totalCount
           }
+          
         }
       }
       """;
@@ -97,6 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
             final userDetail = result.data['user'];
             final repoList = result.data['user']['repositories']['edges'];
             final followerList = result.data['user']['followers']['edges'];
+            final followingList = result.data['user']['following']['edges'];
             //print("dgjkfsdg");
             //print("yo yo ${userDetail['avatarUrl']}");
             return SafeArea(
@@ -104,7 +113,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   UserDetail(u_detail: userDetail),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-                  UserActivity(u_activity: userDetail, repol: repoList, followerlist: followerList,),
+                  UserActivity(
+                    u_activity: userDetail, 
+                    repol: repoList, 
+                    followerlist: followerList,
+                    followinglist: followingList),
                   //UserDetail(),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   Expanded(
