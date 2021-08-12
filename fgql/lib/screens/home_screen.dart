@@ -115,7 +115,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       repol: repoList,
                       followerlist: followerList,
                       followinglist: followingList),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.015),
+                  
                   UserBio(bio: userDetail['bio'])
                 ],
               ),
