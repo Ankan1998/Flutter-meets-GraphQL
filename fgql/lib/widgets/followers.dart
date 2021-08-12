@@ -121,10 +121,11 @@ class _UserFollowerState extends State<UserFollower> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text("Followers: ${widget.follower[index]['node']['followers']['totalCount']}"),
-                            //SizedBox(width:5),
+                            
                             Text("Following: ${widget.follower[index]['node']['following']['totalCount']}"),
-                            //Text("Following: ${widget.follower[index]['node']['repositories']['totalCount']}"),
-                            //Text("Repository: ${widget.follower[index]['node']['repositories']['totalCount']}"),
+                          
+                            Text("Repository: ${widget.follower[index]['node']['repositories']['totalCount']}"),
+                            SizedBox(height: 5)
                           ],
                         ),
                       ),

@@ -122,8 +122,9 @@ class _UserFollowingState extends State<UserFollowing> {
                             Text("Followers: ${widget.following[index]['node']['followers']['totalCount']}"),
                             //SizedBox(width:5),
                             Text("Following: ${widget.following[index]['node']['following']['totalCount']}"),
-                            //Text("Following: ${widget.follower[index]['node']['repositories']['totalCount']}"),
-                            //Text("Repository: ${widget.following[index]['node']['repositories']['totalCount']}"),
+                            
+                            Text("Repository: ${widget.following[index]['node']['repositories']['totalCount']}"),
+                            SizedBox(height: 5)
                           ],
                         ),
                       ),
