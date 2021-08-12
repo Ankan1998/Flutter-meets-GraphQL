@@ -86,11 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
           options: QueryOptions(document: gql(readRepositories)),
           builder: (QueryResult result,
               {VoidCallback refetch, FetchMore fetchMore}) {
-            //print(result.data);
-            //print("ckbjmlckb");
-            //print(result.data['user']);
-            //print(result.hasException);
-            //print(result.hasException);
+
             // if (result.hasException) {
             //   return Center(
             //       child: Text(
@@ -107,8 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
             final repoList = result.data['user']['repositories']['edges'];
             final followerList = result.data['user']['followers']['edges'];
             final followingList = result.data['user']['following']['edges'];
-            //print("dgjkfsdg");
-            //print("yo yo ${userDetail['avatarUrl']}");
+
             return SafeArea(
               child: Column(
                 children: [
