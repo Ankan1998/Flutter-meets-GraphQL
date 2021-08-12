@@ -1,4 +1,4 @@
-import 'package:fgql/widgets/graphql_main.dart';
+import 'package:fgql/services/graphql_main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

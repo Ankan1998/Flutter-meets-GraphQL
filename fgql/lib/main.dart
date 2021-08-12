@@ -1,6 +1,6 @@
 import 'package:fgql/screens/entry_screen.dart';
 import 'package:fgql/themes.dart';
-import 'package:fgql/widgets/graphql_main.dart';
+import 'package:fgql/services/graphql_main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
