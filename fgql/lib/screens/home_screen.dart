@@ -20,12 +20,13 @@ class _HomeScreenState extends State<HomeScreen> {
           avatarUrl(size: 200)
           location
           name
+          bio
           url
           email
           login
-          repositories(first:100){
-            edges{
-              node{
+          repositories(first: 100) {
+            edges {
+              node {
                 name
                 description
                 stargazerCount
@@ -34,39 +35,38 @@ class _HomeScreenState extends State<HomeScreen> {
             }
             totalCount
           }
-          followers(first:100) {
-            edges{
-              node{
-                avatarUrl(size:200)
+          followers(first: 100) {
+            edges {
+              node {
+                avatarUrl(size: 200)
                 name
                 bio
-                followers{
+                followers {
                   totalCount
                 }
-                following{
+                following {
                   totalCount
                 }
-                repositories{
+                repositories {
                   totalCount
                 }
-                
               }
             }
             totalCount
           }
-          following(first:100) {
-            edges{
-              node{
-                avatarUrl(size:200)
+          following(first: 100) {
+            edges {
+              node {
+                avatarUrl(size: 200)
                 name
                 bio
-                followers{
+                followers {
                   totalCount
                 }
-                following{
+                following {
                   totalCount
                 }
-                repositories{
+                repositories {
                   totalCount
                 }
               }
@@ -86,10 +86,10 @@ class _HomeScreenState extends State<HomeScreen> {
           options: QueryOptions(document: gql(readRepositories)),
           builder: (QueryResult result,
               {VoidCallback refetch, FetchMore fetchMore}) {
-            print(result.data);
+            //print(result.data);
             //print("ckbjmlckb");
             //print(result.data['user']);
-            print(result.hasException);
+            //print(result.hasException);
             //print(result.hasException);
             // if (result.hasException) {
             //   return Center(
@@ -103,6 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
               return Center(child: CircularProgressIndicator());
             }
             final userDetail = result.data['user'];
+            
             final repoList = result.data['user']['repositories']['edges'];
             final followerList = result.data['user']['followers']['edges'];
             final followingList = result.data['user']['following']['edges'];
@@ -114,47 +115,41 @@ class _HomeScreenState extends State<HomeScreen> {
                   UserDetail(u_detail: userDetail),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   UserActivity(
-                    u_activity: userDetail, 
-                    repol: repoList, 
-                    followerlist: followerList,
-                    followinglist: followingList),
-                  //UserDetail(),
+                      u_activity: userDetail,
+                      repol: repoList,
+                      followerlist: followerList,
+                      followinglist: followingList),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(
-                        //color: Colors.white,
-                        border: Border(
-                          top: BorderSide(color: Colors.white,width: 7),
-                          left: BorderSide(color: Colors.white,width: 7),
-                          right: BorderSide(color: Colors.white,width: 7),
-                        ),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30),
-                        ),
-                        gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
-                          stops: [
-                            0.1,
-                            0.4,
-                            0.9,
-                          ],
-                          colors: [
-                            Colors.green[700].withOpacity(0.4),
-                            Colors.lightGreen[500].withOpacity(0.3),
-                            Colors.lime[400].withOpacity(0.6),
-                          ],
-                        )
-                      ),
-                      child: SizedBox(
-
-                        child: Center(
-                          child: Text("Chill")),
-                      )
-                    ),
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                            //color: Colors.white,
+                            // border: Border(
+                            //   top: BorderSide(color: Colors.white,width: 7),
+                            //   left: BorderSide(color: Colors.white,width: 7),
+                            //   right: BorderSide(color: Colors.white,width: 7),
+                            // ),
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(30),
+                            ),
+                            gradient: LinearGradient(
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                              stops: [
+                                0.1,
+                                0.4,
+                                0.9,
+                              ],
+                              colors: [
+                                Colors.green[700].withOpacity(0.4),
+                                Colors.lightGreen[500].withOpacity(0.3),
+                                Colors.lime[400].withOpacity(0.6),
+                              ],
+                            )),
+                        child: SizedBox(
+                            child: Center(child: Text(userDetail['bio'])))),
                   ),
                 ],
               ),
