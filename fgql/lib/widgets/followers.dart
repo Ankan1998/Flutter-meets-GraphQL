@@ -62,7 +62,7 @@ class _UserFollowerState extends State<UserFollower> {
                     child: ExpansionTile(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: Container(
                             child: widget.follower[index]['node']['bio'] != null ? 
                           Text(

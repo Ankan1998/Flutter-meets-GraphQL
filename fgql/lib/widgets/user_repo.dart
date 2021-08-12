@@ -61,7 +61,7 @@ class _UserRepoState extends State<UserRepo> {
                   child: ExpansionTile(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(15.0),
                         child: Container(
                           child: widget.repo[index]['node']['description'] != null ? 
                         Text(
