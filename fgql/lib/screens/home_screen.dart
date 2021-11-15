@@ -1,3 +1,4 @@
+import 'package:fgql/components/graphql_queries.dart';
 import 'package:fgql/themes.dart';
 import 'package:fgql/widgets/user_activity.dart';
 import 'package:fgql/widgets/user_bio.dart';
@@ -15,76 +16,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String readRepositories = """
-       query Flutter_Github_GraphQL{
-        user(login: "Ankan1998") {
-          avatarUrl(size: 200)
-          location
-          name
-          bio
-          url
-          email
-          login
-          repositories(first: 100) {
-            edges {
-              node {
-                name
-                description
-                stargazerCount
-                forkCount
-              }
-            }
-            totalCount
-          }
-          followers(first: 100) {
-            edges {
-              node {
-                avatarUrl(size: 200)
-                name
-                bio
-                followers {
-                  totalCount
-                }
-                following {
-                  totalCount
-                }
-                repositories {
-                  totalCount
-                }
-              }
-            }
-            totalCount
-          }
-          following(first: 100) {
-            edges {
-              node {
-                avatarUrl(size: 200)
-                name
-                bio
-                followers {
-                  totalCount
-                }
-                following {
-                  totalCount
-                }
-                repositories {
-                  totalCount
-                }
-              }
-            }
-            totalCount
-          }
-          
-        }
-      }
-      """;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepPurple[100],
       body: Query(
-          options: QueryOptions(document: gql(readRepositories)),
+          options: QueryOptions(document: gql(GraphqlQueries.getDetails())),
           builder: (QueryResult result,
               {VoidCallback refetch, FetchMore fetchMore}) {
 
@@ -99,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
             if (result.isLoading) {
               return Center(child: CircularProgressIndicator());
             }
+            print(result);
             final userDetail = result.data['user'];
             
             final repoList = result.data['user']['repositories']['edges'];
