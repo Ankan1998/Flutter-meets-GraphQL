@@ -1,4 +1,4 @@
-class graphqlQueries{
+class GraphqlQueries{
   static String getDetails() {
     return """
            query Flutter_Github_GraphQL{
